@@ -1,0 +1,53 @@
+﻿## Ignore build result folders
+bin/
+obj/
+
+## Ignore intermediate/reference build output
+ref/
+refint/
+
+## Ignore compiled binaries
+*.dll
+*.exe
+*.pdb
+
+## Ignore cache and intermediate files
+*.cache
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+
+## Ignore Visual Studio-specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Ignore publish artifacts
+*.Publish.xml
+.publish/
+*.azurePubxml
+
+## Ignore SourceLink auto-generated metadata
+*.sourceLink.json
+
+## Do NOT ignore source code files
+!*.cs
+!*.json
+!*.xml
+!*.cshtml
+!*.razor
+
+## Ignore test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## Ignore coverage tools output
+*.coverage
+*.coveragexml
+# Ignore Visual Studio publish profile user files
+*.pubxml.user
+Properties/PublishProfiles/*.pubxml.user

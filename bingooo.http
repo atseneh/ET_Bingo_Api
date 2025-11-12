@@ -1,0 +1,13 @@
+﻿@bingooo_HostAddress = https://localhost:7021
+
+POST {{bingooo_HostAddress}}/dashboard/postsales/04d63bd3-901f-4528-956d-0019cd443892
+
+###
+
+GET {{bingooo_HostAddress}}/account/isadminchecker/{id}
+
+###
+
+GET {{bingooo_HostAddress}}/account/isadminchecker/{id}
+
+###
