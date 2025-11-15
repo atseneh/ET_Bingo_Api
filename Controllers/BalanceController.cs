@@ -94,6 +94,54 @@ namespace bingooo.Controllers
                 return StatusCode(500, $"An error occurred: {ex.Message}");
             }
         }
+        [HttpPost("batch/balance")]
+        public async Task<IActionResult> GetBatchBalance([FromBody] List<string> userIds)
+        {
+            try
+            {
+                var results = new List<object>();
+
+                foreach (var userId in userIds)
+                {
+                    var (_, calculatedBalance, _) = await _balanceService.Savetopup(userId);
+                    results.Add(new
+                    {
+                        userId,
+                        balance = calculatedBalance
+                    });
+                }
+
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+        [HttpPost("batch/calculate-balance")]
+        public async Task<IActionResult> GetBatchCalculatedBalance([FromBody] List<string> userIds)
+        {
+            try
+            {
+                var results = new List<object>();
+
+                foreach (var userId in userIds)
+                {
+                    var (id, calculatedBalance) = await _balanceService.CalculateAndSaveBalance(userId);
+                    results.Add(new
+                    {
+                        userId = id,
+                        calculatedBalance
+                    });
+                }
+
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
 
         [HttpGet("{userId}/calculate-balance")]
         public async Task<IActionResult> CalculateAndSaveBalance(string userId)
